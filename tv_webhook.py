@@ -20,8 +20,8 @@ def send_to_telegram(message: str):
 @app.route("/webhook", methods=["POST"])
 def webhook():
     data = request.get_json(force=True)
-    print("⚠️ Raw payload:", data)
-    message = data.get("alert") or data.get("message") or json.dumps(data)
+    print("⚠️ Raw payload:", data)  # 👈 this line is critical
+
 
 
     if not message:
